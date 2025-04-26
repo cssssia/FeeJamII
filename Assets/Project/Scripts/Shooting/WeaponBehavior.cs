@@ -21,6 +21,8 @@ public class WeaponBehavior : MonoBehaviour
         StartCoroutine(IEUpdate());
     }
 
+    private Vector2 m_mousePos;
+    private Vector2 m_lookDir;
     private IEnumerator IEUpdate()
     {
         while (true)
@@ -39,7 +41,15 @@ public class WeaponBehavior : MonoBehaviour
                 // m_shot.GetComponent<ShootController>().gameObject.tag = "Laser";
                 // Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos), Quaternion.identity);
             }
-            m_weaponTransform.LookAt(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos));
+            
+            
+            Vector3 l_position = transform.position;
+            m_mousePos = Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos);
+            m_lookDir = m_mousePos - new Vector2(l_position.x, l_position.y);
+            
+            float l_angle = Mathf.Atan2(m_lookDir.y, m_lookDir.x) * Mathf.Rad2Deg - 90f;
+
+            m_weaponTransform.rotation = Quaternion.Euler(0f, 0f, l_angle);
         }
     }
 
