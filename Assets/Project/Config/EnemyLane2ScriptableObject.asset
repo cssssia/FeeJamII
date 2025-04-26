@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3371528091984089832, guid: a6acf73d49f5b4057b9fc74fca90b7f9, type: 3}
   sprites:
-  - {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   - {fileID: 21300000, guid: d9c229a4e29a442b9845177e6e5709bc, type: 3}
   - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  - {fileID: -114174815991278397, guid: 4b46f7c6fc2c24648a8ec5aa1342c5d8, type: 3}
   animators:
-  - {fileID: 9100000, guid: 765ed1c715d3048499f60b3a2b911bc6, type: 2}
   - {fileID: 9100000, guid: 72ba3922f1d92479ca056df84d856def, type: 2}
   - {fileID: 9100000, guid: a6c5d0095d7a64967bee59bbc811718c, type: 2}
+  - {fileID: 9100000, guid: 765ed1c715d3048499f60b3a2b911bc6, type: 2}
   spawnPositions: []
