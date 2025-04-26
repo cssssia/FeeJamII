@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 528916190}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: EndLaneEnemy1
+  m_TagString: EndLaneEnemy0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb28a74c43ff49c588d0656312aa371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEnemies: 1
+  spawnLaneEnemies: 1
   m_enemySpawnRangeTimer: {x: 1, y: 3}
   m_enemyPrefab: {fileID: 3371528091984089832, guid: a6acf73d49f5b4057b9fc74fca90b7f9, type: 3}
   m_enemySprites:
@@ -597,7 +597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1097355271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17217e61033404079ba71c03c5c0281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnEnemies: 1
+  destroyEnemiesWhenDamage: 1
+  waitTimeBeforeStartSpawn: 3
 --- !u!4 &1097355272
 Transform:
   m_ObjectHideFlags: 0
@@ -725,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb28a74c43ff49c588d0656312aa371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEnemies: 1
+  spawnLaneEnemies: 1
   m_enemySpawnRangeTimer: {x: 1, y: 3}
   m_enemyPrefab: {fileID: 3371528091984089832, guid: a6acf73d49f5b4057b9fc74fca90b7f9, type: 3}
   m_enemySprites:
@@ -832,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb28a74c43ff49c588d0656312aa371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEnemies: 1
+  spawnLaneEnemies: 1
   m_enemySpawnRangeTimer: {x: 1, y: 3}
   m_enemyPrefab: {fileID: 3371528091984089832, guid: a6acf73d49f5b4057b9fc74fca90b7f9, type: 3}
   m_enemySprites:
@@ -852,7 +855,7 @@ GameObject:
   - component: {fileID: 1569285915}
   m_Layer: 0
   m_Name: Square (4)
-  m_TagString: EndLaneEnemy2
+  m_TagString: EndLaneEnemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1234,6 +1237,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1744600066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1744600068}
+  - component: {fileID: 1744600067}
+  m_Layer: 0
+  m_Name: PointsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1744600067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744600066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77eb6d5a746864770b0cb91773e3b960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_life: 10
+--- !u!4 &1744600068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744600066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1857290441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1295,7 @@ GameObject:
   - component: {fileID: 1857290442}
   m_Layer: 0
   m_Name: Square (5)
-  m_TagString: EndLaneEnemy3
+  m_TagString: EndLaneEnemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1380,6 +1428,7 @@ SceneRoots:
   - {fileID: 1560027028}
   - {fileID: 531950047}
   - {fileID: 1283244672}
+  - {fileID: 1744600068}
   - {fileID: 1097355272}
   - {fileID: 528916192}
   - {fileID: 1569285917}

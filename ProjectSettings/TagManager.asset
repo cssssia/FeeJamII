@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - EndLaneEnemy0
   - EndLaneEnemy1
   - EndLaneEnemy2
-  - EndLaneEnemy3
+  - Enemy0
   - Enemy1
   - Enemy2
-  - Enemy3
   layers:
   - Default
   - TransparentFX

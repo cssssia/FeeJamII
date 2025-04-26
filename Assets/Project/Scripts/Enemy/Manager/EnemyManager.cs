@@ -13,7 +13,10 @@ public enum EnemyLane
 
 public class EnemyManager : Singleton<EnemyManager>
 {
-    // public bool spawnEnemies = true;
+    public bool spawnEnemies = true;
+    public bool destroyEnemiesWhenDamage = true;
+    public float waitTimeBeforeStartSpawn = 3f;
+    private List<EnemyController> m_enemiesInGame = new();
     // [SerializeField] private Vector2 m_enemySpawnRangeTimer;
 
     // [SerializeField] private GameObject m_enemyPrefab;
@@ -67,10 +70,36 @@ public class EnemyManager : Singleton<EnemyManager>
     // }
 
     public Action<int> OnEnemyReachLaneEnd;
+    public Action<bool> OnCanSpawnEnemies;
+
+    public void EnemySpawned(EnemyController p_enemyController)
+    {
+        m_enemiesInGame.Add(p_enemyController);
+    }
 
     public void EnemyReachLaneEnd()
     {
         OnEnemyReachLaneEnd?.Invoke(1);
+
+        if (destroyEnemiesWhenDamage)
+        {
+            spawnEnemies = false;
+            OnCanSpawnEnemies?.Invoke(false);
+            for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
+            {
+                Destroy(m_enemiesInGame[i].gameObject);
+                m_enemiesInGame.RemoveAt(i);
+            }
+        }
+
+        StartCoroutine(StartSpawn());
     }
 
+    private IEnumerator StartSpawn()
+    {
+        yield return new WaitForSeconds(waitTimeBeforeStartSpawn);
+
+        spawnEnemies = true;
+        OnCanSpawnEnemies?.Invoke(true);
+    }
 }

@@ -5,7 +5,7 @@ public class PointsController : MonoBehaviour
 {
     [SerializeField] private int m_life = 10;
 
-    void Awake()
+    void Start()
     {
         EnemyManager.Instance.OnEnemyReachLaneEnd += OnEnemyReachLaneEnd;
     }
