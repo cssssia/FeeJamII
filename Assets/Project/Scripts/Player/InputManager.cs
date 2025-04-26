@@ -33,6 +33,9 @@ public class InputManager : Singleton<InputManager>
     [field: SerializeField, ReadOnly, ShowIf("m_debug")]
     public bool ClickHeld { get; private set; }
 
+    public Action OnPerformHold;
+    public Action OnReleaseHold;
+
     public Vector2 MousePos
     {
         get { return Mouse.current.position.ReadValue(); }
@@ -67,9 +70,6 @@ public class InputManager : Singleton<InputManager>
         OnPerformHold?.Invoke();
         ClickHeld = true;
     }
-
-    public Action OnPerformHold;
-    public Action OnReleaseHold;
 
     private void HoldClickCanceled(InputAction.CallbackContext context)
     {

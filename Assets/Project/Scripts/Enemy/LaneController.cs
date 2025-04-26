@@ -37,14 +37,16 @@ public class LaneController : MonoBehaviour
 
             StartCoroutine(SpawnEnemy(Random.Range(m_enemySpawnRangeTimer.x, m_enemySpawnRangeTimer.y)));
         }
-
     }
 
     private EnemyController InstantiateEnemy(Vector2 p_startPosition)
     {
         int enemyType = Random.Range(0, 3);
 
-        return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>().Setup(m_laneNumber, enemiesSO.sprites[enemyType], enemiesSO.animators[enemyType], "Enemy" + enemyType);
+        return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity)
+            .GetComponent<EnemyController>()
+            .Setup(m_laneNumber, enemiesSO.sprites[enemyType], 
+                enemiesSO.animators[enemyType],
+                "Enemy" + enemyType);
     }
-
 }

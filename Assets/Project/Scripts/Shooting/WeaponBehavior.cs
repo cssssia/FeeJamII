@@ -6,7 +6,6 @@ public class WeaponBehavior : MonoBehaviour
 {
     public Action OnShoot;
     public Action OnDoubleShoot;
-    public Action OnLaser;
 
     [SerializeField] private Transform m_weaponTransform;
     [SerializeField] private GameObject m_shot;
@@ -18,10 +17,12 @@ public class WeaponBehavior : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("1");
         InputManager.Instance.OnPerformHold += OnPerformHold;
         InputManager.Instance.OnReleaseHold += OnReleaseHold;
+        Debug.Log("2");
         m_laserObject.SetActive(false);
-        m_laserObject.SetActive(false);
+        m_laserVFXObject.SetActive(false);
         StartCoroutine(IEUpdate());
     }
 
