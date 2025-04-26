@@ -42,7 +42,6 @@ public class EnemyController : MonoBehaviour
     {
         if (p_collider.tag.Contains(gameObject.tag))
         {
-            Debug.Log(gameObject.tag);
             EnemyManager.Instance.EnemyReachLaneEnd();
         }
     }

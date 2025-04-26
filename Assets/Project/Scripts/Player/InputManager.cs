@@ -64,11 +64,17 @@ public class InputManager : Singleton<InputManager>
 
     private void HoldClickPerformed(InputAction.CallbackContext context)
     {
+        OnPerformHold?.Invoke();
         ClickHeld = true;
     }
 
+    public Action OnPerformHold;
+    public Action OnReleaseHold;
+
     private void HoldClickCanceled(InputAction.CallbackContext context)
     {
+        if (ClickHeld) OnReleaseHold?.Invoke();
+
         ClickHeld = false;
     }
 

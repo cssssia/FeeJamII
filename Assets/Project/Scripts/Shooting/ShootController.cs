@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
+    public bool shouldDestroyOnShoot = true;
+
     private void KillEnemy(GameObject p_gameObject)
     {
         int l_penality = 0;
@@ -15,9 +17,8 @@ public class ShootController : MonoBehaviour
         {
             EnemyManager.Instance.EnemyDied(p_gameObject.GetComponent<EnemyController>());
             Destroy(p_gameObject);
-            Destroy(gameObject);
+            if (shouldDestroyOnShoot) Destroy(gameObject);
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D p_collision)
@@ -37,7 +38,7 @@ public class ShootController : MonoBehaviour
             Debug.Log("mato o mamifero");
             KillEnemy(p_collision.gameObject);
         }
-        else
+        else if (shouldDestroyOnShoot)
         {
             Destroy(gameObject);
         }

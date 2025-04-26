@@ -10,10 +10,53 @@ public class WeaponBehavior : MonoBehaviour
 
     [SerializeField] private Transform m_weaponTransform;
     [SerializeField] private GameObject m_shot;
+    [SerializeField] private GameObject m_laserObject;
+    [SerializeField] private GameObject m_laserVFXObject;
+    [SerializeField] private GameObject m_laserFeixeObject;
+    [SerializeField] private Animator m_laserBaseExplosion;
+    [SerializeField] private Animator m_laserTargetExplosion;
 
     private void OnEnable()
     {
+        InputManager.Instance.OnPerformHold += OnPerformHold;
+        InputManager.Instance.OnReleaseHold += OnReleaseHold;
+        m_laserObject.SetActive(false);
+        m_laserObject.SetActive(false);
         StartCoroutine(IEUpdate());
+    }
+
+    private void OnDisable()
+    {
+        InputManager.Instance.OnPerformHold -= OnPerformHold;
+        InputManager.Instance.OnReleaseHold -= OnReleaseHold;
+
+        StopAllCoroutines();
+    }
+
+    private bool m_isLaserActive;
+
+    private void OnPerformHold()
+    {
+        m_isLaserActive = true;
+        m_laserObject.SetActive(m_isLaserActive);
+        m_laserVFXObject.SetActive(m_isLaserActive);
+        StartCoroutine(PlayLaserAnims());
+    }
+
+    private float m_delayBetweenLaserExplosions = .1f;
+
+    private IEnumerator PlayLaserAnims()
+    {
+        // play first anim
+        yield return new WaitForSeconds(m_delayBetweenLaserExplosions);
+        // play second anim
+    }
+
+    private void OnReleaseHold()
+    {
+        m_isLaserActive = false;
+        m_laserObject.SetActive(m_isLaserActive);
+        m_laserVFXObject.SetActive(m_isLaserActive);
     }
 
     private Vector2 m_mousePos;
@@ -24,23 +67,19 @@ public class WeaponBehavior : MonoBehaviour
         while (true)
         {
             yield return null;
-            
-            if (InputManager.Instance.DoubleClickPressedThisFrame) DoubleShoot();
+
+            if (InputManager.Instance.DoubleClickPressedThisFrame)
+            {
+                DoubleShoot();
+            }
             else if (InputManager.Instance.ClickPressedThisFrame)
             {
-                //sendo triggerado no double click.... duas vezes,.,.,.,
-                m_shot.GetComponent<ShootController>().gameObject.tag = "Shoot";
-                Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos),
-                    Quaternion.identity);
+                NormalShoot();
             }
             else if (InputManager.Instance.ClickHeld)
             {
-                // disparando sempre q clica
-                // spawnando muitos ao inves de 1 só
-                // m_shot.GetComponent<ShootController>().gameObject.tag = "Laser";
-                // Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos), Quaternion.identity);
+                UpdateLaserPositionAndVFXSize();
             }
-
 
             Vector3 l_position = transform.position;
             m_mousePos = Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos);
@@ -52,24 +91,34 @@ public class WeaponBehavior : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void NormalShoot()
     {
         OnShoot?.Invoke();
+        GameObject shot = Instantiate(m_shot,
+            Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos),
+            Quaternion.identity);
+        shot.transform.position = new Vector3(shot.transform.position.x, shot.transform.position.y, 0);
+        shot.tag = "Shoot";
     }
 
     public void DoubleShoot()
     {
-        m_shot.GetComponent<ShootController>().gameObject.tag = "DoubleShoot";
-        Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos), Quaternion.identity);
+        GameObject shot = Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos),
+            Quaternion.identity);
+        shot.transform.position = new Vector3(shot.transform.position.x, shot.transform.position.y, 0);
+        shot.tag = "DoubleShoot";
+        OnDoubleShoot?.Invoke();
     }
 
-    public void Laser()
+    private void UpdateLaserPositionAndVFXSize()
     {
-        OnLaser?.Invoke();
-    }
+        m_laserObject.transform.position = Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos);
+        m_laserObject.transform.position =
+            new Vector3(m_laserObject.transform.position.x,
+                m_laserObject.transform.position.y, 0);
 
-    private void OnDisable()
-    {
-        StopAllCoroutines();
+        float distance = Vector2.Distance(transform.position, m_laserObject.transform.position);
+        m_laserFeixeObject.transform.localScale = new Vector3(m_laserFeixeObject.transform.localScale.x, distance,
+            m_laserFeixeObject.transform.localScale.z);
     }
 }
