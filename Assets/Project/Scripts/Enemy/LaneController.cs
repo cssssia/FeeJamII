@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class LaneController : MonoBehaviour
@@ -9,8 +10,7 @@ public class LaneController : MonoBehaviour
     [SerializeField] private Vector2 m_enemySpawnRangeTimer;
     [SerializeField] private int m_laneNumber;
 
-    [SerializeField] private GameObject m_enemyPrefab;
-    [SerializeField] private List<Sprite> m_enemySprites;
+    [SerializeField] private EnemyScriptableObject enemiesSO;
 
     void Start()
     {
@@ -45,11 +45,15 @@ public class LaneController : MonoBehaviour
     {
         int enemyType = Random.Range(0, 3);
 
-        m_enemyPrefab.GetComponent<EnemyController>().enemySprite.sprite = m_enemySprites[enemyType];
-        m_enemyPrefab.GetComponent<EnemyController>().tag = "Enemy" + enemyType;
-        m_enemyPrefab.GetComponent<EnemyController>().LaneNumber = m_laneNumber;
+        EnemyController l_enemyController = enemiesSO.prefab.GetComponent<EnemyController>();
 
-        return Instantiate(m_enemyPrefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>();
+        l_enemyController.enemySprite.sprite = enemiesSO.sprites[enemyType];
+        l_enemyController.animator.runtimeAnimatorController = enemiesSO.animators[enemyType];
+        l_enemyController.LaneNumber = m_laneNumber;
+        l_enemyController.tag = "Enemy" + enemyType;
+        l_enemyController.name = "Enemy" + enemyType;
+
+        return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>();
     }
 
 }

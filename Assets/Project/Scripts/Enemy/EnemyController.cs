@@ -1,13 +1,15 @@
 using System;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
 
     [SerializeField] private float m_velocity;
-    public int LaneNumber;
 
+    public int LaneNumber;
     public SpriteRenderer enemySprite;
+    public Animator animator;
 
     private void FixedUpdate()
     {
