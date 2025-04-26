@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: d9c229a4e29a442b9845177e6e5709bc
+guid: 6b6453a673aee47a7820834ebf403993
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6729109737777642613
-    second: SPR_Bird_2_0
+      213: 2017019766465198804
+    second: SPR_Bird_0_0
+  - first:
+      213: 8437711919795418703
+    second: SPR_Bird_0_1
+  - first:
+      213: 8545044346247619629
+    second: SPR_Bird_0_2
+  - first:
+      213: 5607853616636433852
+    second: SPR_Bird_0_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -100,23 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_Bird_2_0
+      name: SPR_Bird_0_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b83442988566d92a0800000000000000
-      internalID: -6729109737777642613
+      spriteID: 4da791d7ac4edfb10800000000000000
+      internalID: 2017019766465198804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bird_0_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f463c704946c81570800000000000000
+      internalID: 8437711919795418703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bird_0_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24ac003f88169670800000000000000
+      internalID: 8545044346247619629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Bird_0_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb51104172913dd40800000000000000
+      internalID: 5607853616636433852
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 9a03eff1bb028400ab2585d941eb16f3
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPR_Bird_2_0: -6729109737777642613
+      SPR_Bird_0_0: 2017019766465198804
+      SPR_Bird_0_1: 8437711919795418703
+      SPR_Bird_0_2: 8545044346247619629
+      SPR_Bird_0_3: 5607853616636433852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
