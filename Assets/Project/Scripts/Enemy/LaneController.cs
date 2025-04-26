@@ -5,7 +5,9 @@ using UnityEngine;
 public class LaneController : MonoBehaviour
 {
     public bool spawnLaneEnemies = true;
+
     [SerializeField] private Vector2 m_enemySpawnRangeTimer;
+    [SerializeField] private int m_laneNumber;
 
     [SerializeField] private GameObject m_enemyPrefab;
     [SerializeField] private List<Sprite> m_enemySprites;
@@ -45,6 +47,7 @@ public class LaneController : MonoBehaviour
 
         m_enemyPrefab.GetComponent<EnemyController>().enemySprite.sprite = m_enemySprites[enemyType];
         m_enemyPrefab.GetComponent<EnemyController>().tag = "Enemy" + enemyType;
+        m_enemyPrefab.GetComponent<EnemyController>().LaneNumber = m_laneNumber;
 
         return Instantiate(m_enemyPrefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>();
     }

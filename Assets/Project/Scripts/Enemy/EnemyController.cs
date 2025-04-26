@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
 
     [SerializeField] private float m_velocity;
+    public int LaneNumber;
 
     public SpriteRenderer enemySprite;
 

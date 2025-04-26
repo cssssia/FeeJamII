@@ -77,10 +77,31 @@ public class EnemyManager : Singleton<EnemyManager>
         m_enemiesInGame.Add(p_enemyController);
     }
 
+    public void EnemyDied(EnemyController p_enemyController)
+    {
+        m_enemiesInGame.Remove(p_enemyController);
+    }
+
     public void EnemyReachLaneEnd()
     {
         OnEnemyReachLaneEnd?.Invoke(1);
 
+        if (destroyEnemiesWhenDamage)
+        {
+            spawnEnemies = false;
+            OnCanSpawnEnemies?.Invoke(false);
+            for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
+            {
+                Destroy(m_enemiesInGame[i].gameObject);
+                m_enemiesInGame.RemoveAt(i);
+            }
+        }
+
+        StartCoroutine(StartSpawn());
+    }
+
+    public void PenalityOccured()
+    {
         if (destroyEnemiesWhenDamage)
         {
             spawnEnemies = false;
