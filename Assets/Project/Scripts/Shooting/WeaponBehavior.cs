@@ -34,7 +34,8 @@ public class WeaponBehavior : MonoBehaviour
             }
             else if (InputManager.Instance.ClickPressed)
             {
-                // disparando sempre
+                // disparando sempre q clica
+                // spawnando muitos ao inves de 1 só
                 // m_shot.GetComponent<ShootController>().gameObject.tag = "Laser";
                 // Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos), Quaternion.identity);
             }
