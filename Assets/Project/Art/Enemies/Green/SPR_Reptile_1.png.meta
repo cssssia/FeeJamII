@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: f079609e4e93e4f47a12f9833bfce6c7
+guid: fb801f1389593446a979a2a1551c8420
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8265804255128927774
     second: SPR_Reptile_1 1_0
+  - first:
+      213: -2862925981982505063
+    second: SPR_Reptile_1 1_1
+  - first:
+      213: -2693770041150967923
+    second: SPR_Reptile_1 1_2
+  - first:
+      213: 4180496227355412042
+    second: SPR_Reptile_1 1_3
+  - first:
+      213: -2422626439022063557
+    second: SPR_Reptile_1 1_4
+  - first:
+      213: -9079990369458893472
+    second: SPR_Reptile_1 1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,11 +136,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SPR_Reptile_1 1_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 5
+        width: 26
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99742b1ecf7d448d0800000000000000
+      internalID: -2862925981982505063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Reptile_1 1_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5
+        width: 26
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f6b967b6ecd9ad0800000000000000
+      internalID: -2693770041150967923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Reptile_1 1_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 5
+        width: 26
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4641686b2b140a30800000000000000
+      internalID: 4180496227355412042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Reptile_1 1_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 5
+        width: 26
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b30de9ed61a116ed0800000000000000
+      internalID: -2422626439022063557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Reptile_1 1_5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 5
+        width: 26
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06d4f68edd46df180800000000000000
+      internalID: -9079990369458893472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a4f0c3805a9a34835a3a2d6816e73261
     internalID: 0
     vertices: []
     indices: 
@@ -136,6 +261,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       SPR_Reptile_1 1_0: 8265804255128927774
+      SPR_Reptile_1 1_1: -2862925981982505063
+      SPR_Reptile_1 1_2: -2693770041150967923
+      SPR_Reptile_1 1_3: 4180496227355412042
+      SPR_Reptile_1 1_4: -2422626439022063557
+      SPR_Reptile_1 1_5: -9079990369458893472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
