@@ -1,10 +1,55 @@
 fileFormatVersion: 2
-guid: 1cb8d9fd478bf42aebd791d2b8405635
+guid: 07506ccccb78144198e589aad86284c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2481923363844863266
-    second: SPR_Cat_0
+      213: -6004828346379202295
+    second: SPR_Mammal_0_0
+  - first:
+      213: 2514931636823227239
+    second: SPR_Mammal_0_1
+  - first:
+      213: -8727295598516065554
+    second: SPR_Mammal_0_2
+  - first:
+      213: 2145329851691903110
+    second: SPR_Mammal_0_3
+  - first:
+      213: -1825685252264295519
+    second: SPR_Mammal_0_4
+  - first:
+      213: -8255315368822028161
+    second: SPR_Mammal_0_5
+  - first:
+      213: -4172424964594361426
+    second: SPR_Mammal_0_6
+  - first:
+      213: 8457219352029512839
+    second: SPR_Mammal_0_7
+  - first:
+      213: -7043580935050094137
+    second: SPR_Mammal_0_8
+  - first:
+      213: -2002631274080259768
+    second: SPR_Mammal_0_9
+  - first:
+      213: 6315669843592186135
+    second: SPR_Mammal_0_10
+  - first:
+      213: -3121564187921709579
+    second: SPR_Mammal_0_11
+  - first:
+      213: 4757546315821559894
+    second: SPR_Mammal_0_12
+  - first:
+      213: 6079403845198304702
+    second: SPR_Mammal_0_13
+  - first:
+      213: 8626877699391042742
+    second: SPR_Mammal_0_14
+  - first:
+      213: -8053378829214315936
+    second: SPR_Mammal_0_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPR_Cat_0
+      name: SPR_Mammal_0_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edac842b9df6e8dd0800000000000000
-      internalID: -2481923363844863266
+      spriteID: 9011fd41f609aaca0800000000000000
+      internalID: -6004828346379202295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_1
+      name: SPR_Mammal_0_1
       rect:
         serializedVersion: 2
         x: 32
@@ -135,16 +180,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ef1bc63c980694a95b90790181844ba0
-      internalID: -388475002
+      spriteID: 76b7d3fbff4d6e220800000000000000
+      internalID: 2514931636823227239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_2
+      name: SPR_Mammal_0_2
       rect:
         serializedVersion: 2
         x: 64
@@ -157,16 +202,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 489221afd9acc4b20be03f15e213d216
-      internalID: 1822697551
+      spriteID: eeaae9074ea62e680800000000000000
+      internalID: -8727295598516065554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_3
+      name: SPR_Mammal_0_3
       rect:
         serializedVersion: 2
         x: 96
@@ -179,16 +224,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b43568323af7f419185adfa654fa6c47
-      internalID: 1665362588
+      spriteID: 6882328322eb5cd10800000000000000
+      internalID: 2145329851691903110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_4
+      name: SPR_Mammal_0_4
       rect:
         serializedVersion: 2
         x: 128
@@ -201,16 +246,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e2cc1372f256f405a83cdf207addb641
-      internalID: 301995844
+      spriteID: 1a30e1b9fecd9a6e0800000000000000
+      internalID: -1825685252264295519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_5
+      name: SPR_Mammal_0_5
       rect:
         serializedVersion: 2
         x: 160
@@ -223,16 +268,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0189349f67ec2456a9ae578195db89aa
-      internalID: -374063555
+      spriteID: f784a8c196a3f6d80800000000000000
+      internalID: -8255315368822028161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_6
+      name: SPR_Mammal_0_6
       rect:
         serializedVersion: 2
         x: 192
@@ -245,16 +290,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 020a2e626736349e596a277476c67834
-      internalID: -678385880
+      spriteID: eab9165e9919816c0800000000000000
+      internalID: -4172424964594361426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_7
+      name: SPR_Mammal_0_7
       rect:
         serializedVersion: 2
         x: 224
@@ -267,16 +312,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 82be193234941441b91ebb476f2643f4
-      internalID: 362020658
+      spriteID: 784474141341e5570800000000000000
+      internalID: 8457219352029512839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_8
+      name: SPR_Mammal_0_8
       rect:
         serializedVersion: 2
         x: 256
@@ -289,16 +334,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2f05e7489e1aa49738df27915dfb265e
-      internalID: -256070751
+      spriteID: 7c910a3457c204e90800000000000000
+      internalID: -7043580935050094137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_9
+      name: SPR_Mammal_0_9
       rect:
         serializedVersion: 2
         x: 288
@@ -311,16 +356,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 38a741b5893524204b7b78370e744c59
-      internalID: -692567621
+      spriteID: 841bb5477793534e0800000000000000
+      internalID: -2002631274080259768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_10
+      name: SPR_Mammal_0_10
       rect:
         serializedVersion: 2
         x: 320
@@ -333,16 +378,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7cb03fed365bb4b1890067215772ad8c
-      internalID: -1960459915
+      spriteID: 71985f9c244c5a750800000000000000
+      internalID: 6315669843592186135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_11
+      name: SPR_Mammal_0_11
       rect:
         serializedVersion: 2
         x: 352
@@ -355,16 +400,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 545ea5f551e7b46cfb7223ec3df76f17
-      internalID: -508860372
+      spriteID: 5f5885be8e9fda4d0800000000000000
+      internalID: -3121564187921709579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_12
+      name: SPR_Mammal_0_12
       rect:
         serializedVersion: 2
         x: 384
@@ -377,16 +422,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2ff9c99dab68f44548085916ee5fe2e9
-      internalID: -64286006
+      spriteID: 650330dea23360240800000000000000
+      internalID: 4757546315821559894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_13
+      name: SPR_Mammal_0_13
       rect:
         serializedVersion: 2
         x: 416
@@ -399,16 +444,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8821ec99e8f1747289cd8d5ed07a2ce7
-      internalID: -1971365837
+      spriteID: eb5503f46916e5450800000000000000
+      internalID: 6079403845198304702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_14
+      name: SPR_Mammal_0_14
       rect:
         serializedVersion: 2
         x: 448
@@ -421,16 +466,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bf7ae1051039f456193db4b62e05ab45
-      internalID: -2032001239
+      spriteID: 6b431f87f83d8b770800000000000000
+      internalID: 8626877699391042742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPR_Cat_15
+      name: SPR_Mammal_0_15
       rect:
         serializedVersion: 2
         x: 480
@@ -443,10 +488,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 158b862510128413b9dfb8a4d079d037
-      internalID: 1460000646
+      spriteID: 06a870b9f96ac3090800000000000000
+      internalID: -8053378829214315936
       vertices: []
       indices: 
       edges: []
@@ -455,7 +500,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1f13c70f567614b75b062624531485d4
+    spriteID: 917efd43d2f8048dca0a2253389b7fc9
     internalID: 0
     vertices: []
     indices: 
@@ -465,22 +510,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SPR_Cat_0: -2481923363844863266
-      SPR_Cat_1: -388475002
-      SPR_Cat_10: -1960459915
-      SPR_Cat_11: -508860372
-      SPR_Cat_12: -64286006
-      SPR_Cat_13: -1971365837
-      SPR_Cat_14: -2032001239
-      SPR_Cat_15: 1460000646
-      SPR_Cat_2: 1822697551
-      SPR_Cat_3: 1665362588
-      SPR_Cat_4: 301995844
-      SPR_Cat_5: -374063555
-      SPR_Cat_6: -678385880
-      SPR_Cat_7: 362020658
-      SPR_Cat_8: -256070751
-      SPR_Cat_9: -692567621
+      SPR_Mammal_0_0: -6004828346379202295
+      SPR_Mammal_0_1: 2514931636823227239
+      SPR_Mammal_0_10: 6315669843592186135
+      SPR_Mammal_0_11: -3121564187921709579
+      SPR_Mammal_0_12: 4757546315821559894
+      SPR_Mammal_0_13: 6079403845198304702
+      SPR_Mammal_0_14: 8626877699391042742
+      SPR_Mammal_0_15: -8053378829214315936
+      SPR_Mammal_0_2: -8727295598516065554
+      SPR_Mammal_0_3: 2145329851691903110
+      SPR_Mammal_0_4: -1825685252264295519
+      SPR_Mammal_0_5: -8255315368822028161
+      SPR_Mammal_0_6: -4172424964594361426
+      SPR_Mammal_0_7: 8457219352029512839
+      SPR_Mammal_0_8: -7043580935050094137
+      SPR_Mammal_0_9: -2002631274080259768
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
