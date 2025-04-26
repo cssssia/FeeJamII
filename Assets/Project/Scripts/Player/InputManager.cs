@@ -27,10 +27,13 @@ public class InputManager : Singleton<InputManager>
     private void OnEnable()
     {
         onClickActionReference.action.Enable();
-        onClickActionReference.action.performed += OnDoubleClick;
+        // onClickActionReference.action.performed += OnDoubleClick;
         StartCoroutine(IEUpdate());
     }
 
+    [SerializeField] private float m_doubleClickBufferTime;
+   public  float t = 0f;
+   public bool clickedOnce=false;
     private IEnumerator IEUpdate()
     {
         onClickAction = onClickActionReference.ToInputAction();
@@ -39,7 +42,21 @@ public class InputManager : Singleton<InputManager>
             ClickPressed = onClickAction.IsPressed();
             ClickPressedThisFrame = onClickAction.WasPressedThisFrame();
             ClickReleasedThisFrame = onClickAction.WasReleasedThisFrame();
-       //     if(ClickReleasedThisFrame) DoubleClickPerformedThisAction = false;
+            if (ClickPressedThisFrame && t <= m_doubleClickBufferTime && clickedOnce)
+            {
+                Debug.Log("double click");
+                OnDoubleClickAction?.Invoke();
+                clickedOnce = false;
+            } else if (ClickPressedThisFrame)
+            {
+                if (!clickedOnce)
+                {
+                    clickedOnce = true;
+                    Debug.Log("single click");
+                }
+                t = 0f;
+            } 
+            t+= Time.deltaTime;
             yield return null;
         }
     }
@@ -47,7 +64,7 @@ public class InputManager : Singleton<InputManager>
     private void OnDisable()
     {
         onClickActionReference.action.Disable();
-        onClickActionReference.action.performed -= OnDoubleClick;
+        // onClickActionReference.action.performed -= OnDoubleClick;
         StopAllCoroutines();
     }
     
@@ -60,7 +77,6 @@ public class InputManager : Singleton<InputManager>
     public void OnDoubleClick(InputAction.CallbackContext context)
     {
     //    DoubleClickPerformedThisAction = true;
-        Debug.Log("double click");
         OnDoubleClickAction?.Invoke();
     }
 }

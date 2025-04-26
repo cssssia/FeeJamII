@@ -106,6 +106,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 196450d7-0fd4-4c55-a1a5-1e344ddbb0e3
+    m_ActionName: 'Player/RightClick[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -124,3 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onClickActionReference: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  <ClickPressed>k__BackingField: 0
+  <ClickPressedThisFrame>k__BackingField: 0
+  <ClickReleasedThisFrame>k__BackingField: 0
+  m_doubleClickBufferTime: 0.5
+  t: 0
+  clickedOnce: 0
