@@ -2881,33 +2881,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1754573462559232733, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
-      propertyPath: m_Name
-      value: SPR_Gun
-      objectReference: {fileID: 0}
     - target: {fileID: 5878347830492400950, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
       propertyPath: m_Name
       value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5878347830492400950, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8012430534484432223, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 01fc039d25d1047be93914d7c888c2a0, type: 3}
-    - target: {fileID: 8012430534484432223, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8012430534484432223, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8012430534484432223, guid: cc553dafd5a2fd048ae27a34e910bfa3, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
