@@ -45,15 +45,7 @@ public class LaneController : MonoBehaviour
     {
         int enemyType = Random.Range(0, 3);
 
-        EnemyController l_enemyController = enemiesSO.prefab.GetComponent<EnemyController>();
-
-        l_enemyController.enemySprite.sprite = enemiesSO.sprites[enemyType];
-        l_enemyController.animator.runtimeAnimatorController = enemiesSO.animators[enemyType];
-        l_enemyController.LaneNumber = m_laneNumber;
-        l_enemyController.tag = "Enemy" + enemyType;
-        l_enemyController.name = "Enemy" + enemyType;
-
-        return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>();
+        return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>().Setup(m_laneNumber, enemiesSO.sprites[enemyType], enemiesSO.animators[enemyType], "Enemy" + enemyType);
     }
 
 }

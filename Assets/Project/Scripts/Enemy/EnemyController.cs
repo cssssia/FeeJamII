@@ -26,6 +26,18 @@ public class EnemyController : MonoBehaviour
         transform.Translate(m_velocity * Time.deltaTime * Vector2.left);
     }
 
+    public EnemyController Setup(int p_laneNumber, Sprite p_sprite, RuntimeAnimatorController p_animatorController, string p_enemy)
+    {
+
+        enemySprite.sprite = p_sprite;
+        animator.runtimeAnimatorController = p_animatorController;
+        LaneNumber = p_laneNumber;
+        tag = p_enemy;
+        name = p_enemy;
+
+        return this;
+    }
+
     private void OnTriggerEnter2D(Collider2D p_collider)
     {
         if (p_collider.tag.Contains(gameObject.tag))

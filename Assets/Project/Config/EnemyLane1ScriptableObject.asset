@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b042c5fdea747589f1929a70b229b4, type: 3}
   m_Name: EnemyLane1ScriptableObject
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3371528091984089832, guid: a6acf73d49f5b4057b9fc74fca90b7f9, type: 3}
   sprites:
-  - {fileID: 21300000, guid: e87bf77c6de0f4c62b81414443339090, type: 3}
+  - {fileID: 8146590400800954562, guid: e87bf77c6de0f4c62b81414443339090, type: 3}
   - {fileID: 21300000, guid: 6f99e712f8ba649eba6650f284bc983e, type: 3}
   - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   animators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9100000, guid: 964384a17804a4b35b023fdbf94738f8, type: 2}
+  - {fileID: 9100000, guid: e97a1803e4b6f4c75bc0206aad2deb6a, type: 2}
+  - {fileID: 9100000, guid: d990b78abe29c4d9195b5ce750114697, type: 2}
   spawnPositions: []

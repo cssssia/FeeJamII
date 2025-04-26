@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1616072451170189602}
   m_Layer: 0
   m_Name: PFB_Enemy
-  m_TagString: Enemy0
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_velocity: 2
-  LaneNumber: 2
+  LaneNumber: 0
   enemySprite: {fileID: 8285308096606645876}
   animator: {fileID: 1616072451170189602}
 --- !u!61 &7738474152699632417
