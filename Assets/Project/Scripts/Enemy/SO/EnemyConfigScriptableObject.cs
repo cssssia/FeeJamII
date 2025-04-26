@@ -6,6 +6,9 @@ public class EnemyConfigScriptableObject : ScriptableObject
 {
     public bool spawnEnemies;
     public List<bool> spawnLaneEnemies;
+
+    public float waveDuration;
+
     public float waitTimeBeforeStartSpawn;
     public bool destroyEnemiesWhenDamage;
     public Vector2 enemySpawnRangeTimer;

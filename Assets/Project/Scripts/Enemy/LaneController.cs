@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class LaneController : MonoBehaviour
@@ -15,6 +13,7 @@ public class LaneController : MonoBehaviour
     void Start()
     {
         EnemyManager.Instance.OnCanSpawnEnemies += OnCanSpawnEnemies;
+        spawnLaneEnemies = EnemyManager.Instance.spawnEnemies;
 
         if (spawnLaneEnemies)
             StartCoroutine(SpawnEnemy(Random.Range(0f, m_enemySpawnRangeTimer.x)));

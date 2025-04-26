@@ -13,61 +13,10 @@ public enum EnemyLane
 
 public class EnemyManager : Singleton<EnemyManager>
 {
-    public bool spawnEnemies = true;
+    public bool spawnEnemies = false;
     public bool destroyEnemiesWhenDamage = true;
     public float waitTimeBeforeStartSpawn = 3f;
     private List<EnemyController> m_enemiesInGame = new();
-    // [SerializeField] private Vector2 m_enemySpawnRangeTimer;
-
-    // [SerializeField] private GameObject m_enemyPrefab;
-    // [SerializeField] private List<Sprite> m_enemySprites;
-
-    // [SerializeField] private List<Transform> m_enemySpawnTransforms;
-
-    // void Start()
-    // {
-    //     if (spawnEnemies)
-    //         StartCoroutine(SpawnEnemy(0f));
-    // }
-
-    // private EnemyLane RandomizeLane()
-    // {
-    //     return (EnemyLane)Random.Range(1, 4);
-    // }
-
-    // private EnemyController InstantiateEnemy(Vector2 p_startPosition)
-    // {
-    //     m_enemyPrefab.GetComponent<EnemyController>().enemySprite.sprite = m_enemySprites[Random.Range(0, 3)];
-
-    //     return Instantiate(m_enemyPrefab, p_startPosition, Quaternion.identity).GetComponent<EnemyController>();
-    // }
-
-    // private IEnumerator SpawnEnemy(float p_timeToWaitForSpawn)
-    // {
-    //     EnemyLane l_thisEnemyLane = RandomizeLane();
-
-    //     yield return new WaitForSeconds(p_timeToWaitForSpawn);
-
-    //     SetEnemySpawnPos(l_thisEnemyLane);
-    // }
-
-    // private void SetEnemySpawnPos(EnemyLane p_thisEnemyLane)
-    // {
-    //     switch (p_thisEnemyLane)
-    //     {
-    //         case EnemyLane.Top:
-    //             InstantiateEnemy(m_enemySpawnTransforms[0].position);
-    //             break;
-    //         case EnemyLane.Middle:
-    //             InstantiateEnemy(m_enemySpawnTransforms[1].position);
-    //             break;
-    //         case EnemyLane.Bottom:
-    //             InstantiateEnemy(m_enemySpawnTransforms[2].position);
-    //             break;
-    //     }
-
-    //     if (spawnEnemies) StartCoroutine(SpawnEnemy(Random.Range(m_enemySpawnRangeTimer.x, m_enemySpawnRangeTimer.y)));
-    // }
 
     public Action<int> OnEnemyReachLaneEnd;
     public Action<bool> OnCanSpawnEnemies;
@@ -88,8 +37,7 @@ public class EnemyManager : Singleton<EnemyManager>
 
         if (destroyEnemiesWhenDamage)
         {
-            spawnEnemies = false;
-            OnCanSpawnEnemies?.Invoke(false);
+            SpawnEnemies(false);
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
                 Destroy(m_enemiesInGame[i].gameObject);
@@ -104,8 +52,7 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         if (destroyEnemiesWhenDamage)
         {
-            spawnEnemies = false;
-            OnCanSpawnEnemies?.Invoke(false);
+            SpawnEnemies(false);
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
                 Destroy(m_enemiesInGame[i].gameObject);
@@ -120,7 +67,19 @@ public class EnemyManager : Singleton<EnemyManager>
     {
         yield return new WaitForSeconds(waitTimeBeforeStartSpawn);
 
-        spawnEnemies = true;
-        OnCanSpawnEnemies?.Invoke(true);
+        SpawnEnemies(true);
+    }
+
+    public void SpawnEnemies(bool p_spawnEnemies)
+    {
+        spawnEnemies = p_spawnEnemies;
+        OnCanSpawnEnemies?.Invoke(p_spawnEnemies);
+    }
+
+    public void SpawnEnemies(bool p_spawnEnemies, bool p_isWave)
+    {
+        if (p_isWave) StopAllCoroutines();
+        spawnEnemies = p_spawnEnemies;
+        OnCanSpawnEnemies?.Invoke(p_spawnEnemies);
     }
 }
