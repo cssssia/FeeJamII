@@ -20,15 +20,6 @@
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "RightClick",
-                    "type": "Button",
-                    "id": "196450d7-0fd4-4c55-a1a5-1e344ddbb0e3",
-                    "expectedControlType": "",
-                    "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
                 }
@@ -75,17 +66,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9937e7ff-8c4f-4b7f-a8a7-bfa347c5f567",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "RightClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

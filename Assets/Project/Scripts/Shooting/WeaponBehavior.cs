@@ -11,11 +11,6 @@ public class WeaponBehavior : MonoBehaviour
     [SerializeField] private Transform m_weaponTransform;
     [SerializeField] private GameObject m_shot;
 
-    void Start()
-    {
-        InputManager.Instance.OnDoubleClickAction += DoubleShoot;
-    }
-
     private void OnEnable()
     {
         StartCoroutine(IEUpdate());
@@ -23,30 +18,34 @@ public class WeaponBehavior : MonoBehaviour
 
     private Vector2 m_mousePos;
     private Vector2 m_lookDir;
+
     private IEnumerator IEUpdate()
     {
         while (true)
         {
             yield return null;
-            if (InputManager.Instance.ClickPressedThisFrame)
+            
+            if (InputManager.Instance.DoubleClickPressedThisFrame) DoubleShoot();
+            else if (InputManager.Instance.ClickPressedThisFrame)
             {
                 //sendo triggerado no double click.... duas vezes,.,.,.,
                 m_shot.GetComponent<ShootController>().gameObject.tag = "Shoot";
-                Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos), Quaternion.identity);
+                Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos),
+                    Quaternion.identity);
             }
-            else if (InputManager.Instance.ClickPressed)
+            else if (InputManager.Instance.ClickHeld)
             {
                 // disparando sempre q clica
                 // spawnando muitos ao inves de 1 só
                 // m_shot.GetComponent<ShootController>().gameObject.tag = "Laser";
                 // Instantiate(m_shot, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos), Quaternion.identity);
             }
-            
-            
+
+
             Vector3 l_position = transform.position;
             m_mousePos = Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos);
             m_lookDir = m_mousePos - new Vector2(l_position.x, l_position.y);
-            
+
             float l_angle = Mathf.Atan2(m_lookDir.y, m_lookDir.x) * Mathf.Rad2Deg - 90f;
 
             m_weaponTransform.rotation = Quaternion.Euler(0f, 0f, l_angle);

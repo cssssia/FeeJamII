@@ -100,3 +100,5 @@ crashlytics-build.properties
 # Log files can be ignored.
 fmod.log
 fmod_editor.log
+
+.idea

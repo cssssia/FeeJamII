@@ -6,77 +6,105 @@ using UnityEngine.InputSystem;
 
 public class InputManager : Singleton<InputManager>
 {
-     [SerializeField] private InputActionReference onClickActionReference;
-     private InputAction onClickAction;
-     public Vector2 MousePos
-    {
-        get
-        {
-            return Mouse.current.position.ReadValue();
-        }
-    }
-  
-    [field:SerializeField, ReadOnly]   public bool ClickPressed { get; private set; }
- 
-    [field:SerializeField, ReadOnly]    public bool ClickPressedThisFrame { get; private set; }
-   
-    [field:SerializeField, ReadOnly]  public bool ClickReleasedThisFrame { get; private set; }
+    #region Input System References
 
-   // [field:SerializeField, ReadOnly]  public bool DoubleClickPerformedThisAction { get; private set; }
+    [Header("References"), SerializeField] private InputActionReference onClickActionReference;
+    private InputAction m_onClickAction;
+
+    #endregion
+
+    #region Parameters
+
+    [Header("Parameters"), SerializeField] private float m_doubleClickBufferTime;
+
+    #endregion
+
+    #region Outputs
+
+    [field: SerializeField, ReadOnly, ShowIf("m_debug")]
+    public bool ClickPressedThisFrame { get; private set; }
+
+    [field: SerializeField, ReadOnly, ShowIf("m_debug")]
+    public bool ClickReleasedThisFrame { get; private set; }
+
+    [field: SerializeField, ReadOnly, ShowIf("m_debug")]
+    public bool DoubleClickPressedThisFrame { get; private set; }
+
+    [field: SerializeField, ReadOnly, ShowIf("m_debug")]
+    public bool ClickHeld { get; private set; }
+
+    public Vector2 MousePos
+    {
+        get { return Mouse.current.position.ReadValue(); }
+    }
+
+    #endregion
 
     private void OnEnable()
     {
-        onClickActionReference.action.Enable();
-        // onClickActionReference.action.performed += OnDoubleClick;
-        StartCoroutine(IEUpdate());
-    }
+        m_onClickAction = onClickActionReference.ToInputAction();
 
-    [SerializeField] private float m_doubleClickBufferTime;
-   public  float t = 0f;
-   public bool clickedOnce=false;
-    private IEnumerator IEUpdate()
-    {
-        onClickAction = onClickActionReference.ToInputAction();
-        while (true)
-        {
-            ClickPressed = onClickAction.IsPressed();
-            ClickPressedThisFrame = onClickAction.WasPressedThisFrame();
-            ClickReleasedThisFrame = onClickAction.WasReleasedThisFrame();
-            if (ClickPressedThisFrame && t <= m_doubleClickBufferTime && clickedOnce)
-            {
-                Debug.Log("double click");
-                OnDoubleClickAction?.Invoke();
-                clickedOnce = false;
-            } else if (ClickPressedThisFrame)
-            {
-                if (!clickedOnce)
-                {
-                    clickedOnce = true;
-                    Debug.Log("single click");
-                }
-                t = 0f;
-            } 
-            t+= Time.deltaTime;
-            yield return null;
-        }
+        m_onClickAction.Enable();
+
+        m_onClickAction.performed += HoldClickPerformed;
+        m_onClickAction.canceled += HoldClickCanceled;
+
+        StartCoroutine(IEUpdate());
     }
 
     private void OnDisable()
     {
-        onClickActionReference.action.Disable();
-        // onClickActionReference.action.performed -= OnDoubleClick;
+        m_onClickAction.Disable();
+
+        m_onClickAction.performed -= HoldClickPerformed;
+        m_onClickAction.canceled -= HoldClickCanceled;
+
         StopAllCoroutines();
     }
-    
-    public void OnLook(InputAction.CallbackContext context)
+
+    private void HoldClickPerformed(InputAction.CallbackContext context)
     {
-        
+        ClickHeld = true;
     }
 
-    public Action OnDoubleClickAction;
-    public void OnDoubleClick(InputAction.CallbackContext context)
+    private void HoldClickCanceled(InputAction.CallbackContext context)
     {
-    //    DoubleClickPerformedThisAction = true;
-        OnDoubleClickAction?.Invoke();
+        ClickHeld = false;
     }
+
+    [SerializeField, ReadOnly, ShowIf("m_debug")]
+    public float t = 0f;
+
+    [SerializeField, ReadOnly, ShowIf("m_debug")]
+    public bool clickedOnce = false;
+
+    private IEnumerator IEUpdate()
+    {
+        while (true)
+        {
+            ClickPressedThisFrame = m_onClickAction.WasPressedThisFrame();
+            ClickReleasedThisFrame = m_onClickAction.WasReleasedThisFrame();
+            DoubleClickPressedThisFrame = false;
+
+            if (ClickPressedThisFrame && t < m_doubleClickBufferTime && clickedOnce)
+            {
+                DoubleClickPressedThisFrame = true;
+                clickedOnce = false;
+            }
+            else if (ClickPressedThisFrame)
+            {
+                if (!clickedOnce)
+                {
+                    clickedOnce = true;
+                }
+
+                t = 0f;
+            }
+
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    [Header("Debug"), SerializeField] private bool m_debug;
 }
