@@ -10,6 +10,9 @@ TagManager:
   - Enemy0
   - Enemy1
   - Enemy2
+  - Shoot
+  - DoubleShoot
+  - Laser
   layers:
   - Default
   - TransparentFX
