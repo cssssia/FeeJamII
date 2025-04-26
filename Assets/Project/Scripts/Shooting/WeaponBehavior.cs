@@ -15,6 +15,19 @@ public class WeaponBehavior : MonoBehaviour
     [SerializeField] private Animator m_laserBaseExplosion;
     [SerializeField] private Animator m_laserTargetExplosion;
 
+    // [SerializeField] private AnimatorController m_laserBaseAnim;
+    // [SerializeField] private AnimatorController m_laserTargetAnim;
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        // m_laserBaseAnim = m_laserBaseExplosion.GetComponent<AnimatorController>();
+        // m_laserTargetAnim = m_laserTargetExplosion.GetComponent<AnimatorController>();
+    }
+
     private void OnEnable()
     {
         Debug.Log("1");
@@ -48,9 +61,12 @@ public class WeaponBehavior : MonoBehaviour
 
     private IEnumerator PlayLaserAnims()
     {
-        // play first anim
+        m_laserBaseExplosion.Play("LaserBase");
+        // m_laserBaseExplosion.Play("LaserBase");
+        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
+        m_laserTargetExplosion.gameObject.transform.position = newPos;
         yield return new WaitForSeconds(m_delayBetweenLaserExplosions);
-        // play second anim
+        m_laserTargetExplosion.Play("LaserTarget");
     }
 
     private void OnReleaseHold()
