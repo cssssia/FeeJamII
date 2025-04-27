@@ -106,6 +106,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c9508c0-5533-4d24-bb16-12650354d1b7
+    m_ActionName: 'Player/AimClick[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -128,9 +132,10 @@ MonoBehaviour:
   onAimClickActionReference: {fileID: -2895295899713043653, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_doubleClickBufferTime: 0.5
   <ClickPressedThisFrame>k__BackingField: 0
+  <ClickPerformedThisFrame>k__BackingField: 0
   <ClickReleasedThisFrame>k__BackingField: 0
-  <DoubleClickPressedThisFrame>k__BackingField: 0
+  <RightClickPerformedThisFrame>k__BackingField: 0
   <ClickHeld>k__BackingField: 0
   t: 0
   clickedOnce: 0
-  m_debug: 0
+  m_debug: 1

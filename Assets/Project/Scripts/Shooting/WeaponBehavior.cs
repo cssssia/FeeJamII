@@ -87,11 +87,11 @@ public class WeaponBehavior : MonoBehaviour
         {
             yield return null;
 
-            if (InputManager.Instance.DoubleClickPressedThisFrame)
+            if (InputManager.Instance.RightClickPerformedThisFrame)
             {
                 DoubleShoot();
             }
-            else if (InputManager.Instance.ClickPressedThisFrame)
+            else if (InputManager.Instance.ShouldNormalShootThisFrame)
             {
                 NormalShoot();
             }
