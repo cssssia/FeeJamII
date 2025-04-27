@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d15af54d40d458cb8945ef9d264c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_velocity: 2
+  m_velocity: 1.5
   LaneNumber: 0
   enemySprite: {fileID: 8285308096606645876}
   animator: {fileID: 1616072451170189602}

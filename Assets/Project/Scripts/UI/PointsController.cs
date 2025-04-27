@@ -54,7 +54,10 @@ public class PointsController : Singleton<PointsController>
 
     public int Penality()
     {
+        int l_penality;
         m_penality++;
+
+        l_penality = m_penality;
 
         if (m_penality == 1) m_penalityText.text = "I";
         else if (m_penality == 2) m_penalityText.text = "II";
@@ -63,14 +66,13 @@ public class PointsController : Singleton<PointsController>
         if (m_penality == 3)
         {
             m_life--;
-            Debug.Log(m_life);
             m_penality = 0;
             EnemyManager.Instance.PenalityOccured();
 
             StartCoroutine(PenalityWarn());
         }
 
-        return m_penality;
+        return l_penality;
     }
 
     public IEnumerator PenalityWarn()

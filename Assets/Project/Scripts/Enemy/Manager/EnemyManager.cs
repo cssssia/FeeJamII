@@ -16,7 +16,7 @@ public class EnemyManager : Singleton<EnemyManager>
     public bool spawnEnemies = false;
     public bool destroyEnemiesWhenDamage = true;
     public float waitTimeBeforeStartSpawn = 3f;
-    private List<EnemyController> m_enemiesInGame = new();
+    [SerializeField] private List<EnemyController> m_enemiesInGame = new();
 
     public Action<int> OnEnemyReachLaneEnd;
     public Action<bool> OnCanSpawnEnemies;
@@ -40,8 +40,11 @@ public class EnemyManager : Singleton<EnemyManager>
             SpawnEnemies(false);
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
-                Destroy(m_enemiesInGame[i].gameObject);
+                GameObject l_gameObject = m_enemiesInGame[i].gameObject;
+
                 m_enemiesInGame.RemoveAt(i);
+
+                Destroy(l_gameObject);
             }
         }
 
@@ -55,8 +58,11 @@ public class EnemyManager : Singleton<EnemyManager>
             SpawnEnemies(false);
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
-                Destroy(m_enemiesInGame[i].gameObject);
+                GameObject l_gameObject = m_enemiesInGame[i].gameObject;
+
                 m_enemiesInGame.RemoveAt(i);
+
+                Destroy(l_gameObject);
             }
         }
 
@@ -72,13 +78,6 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public void SpawnEnemies(bool p_spawnEnemies)
     {
-        spawnEnemies = p_spawnEnemies;
-        OnCanSpawnEnemies?.Invoke(p_spawnEnemies);
-    }
-
-    public void SpawnEnemies(bool p_spawnEnemies, bool p_isWave)
-    {
-        if (p_isWave) StopAllCoroutines();
         spawnEnemies = p_spawnEnemies;
         OnCanSpawnEnemies?.Invoke(p_spawnEnemies);
     }

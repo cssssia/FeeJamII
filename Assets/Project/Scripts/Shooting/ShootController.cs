@@ -25,17 +25,14 @@ public class ShootController : MonoBehaviour
     {
         if (gameObject.CompareTag("Shoot") && p_collision.gameObject.CompareTag("Enemy0"))
         {
-            Debug.Log("mato o passaro");
             KillEnemy(p_collision.gameObject);
         }
-        else if (gameObject.CompareTag("DoubleShoot") && p_collision.gameObject.CompareTag("Enemy1"))
+        else if (gameObject.CompareTag("DoubleShoot") && p_collision.gameObject.CompareTag("Enemy2"))
         {
-            Debug.Log("mato o reptil");
             KillEnemy(p_collision.gameObject);
         }
-        else if (gameObject.CompareTag("Laser") && p_collision.gameObject.CompareTag("Enemy2"))
+        else if (gameObject.CompareTag("Laser") && p_collision.gameObject.CompareTag("Enemy1"))
         {
-            Debug.Log("mato o mamifero");
             KillEnemy(p_collision.gameObject);
         }
         else if (shouldDestroyOnShoot)

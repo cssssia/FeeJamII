@@ -44,6 +44,11 @@ public class EnemyController : MonoBehaviour
         {
             EnemyManager.Instance.EnemyReachLaneEnd();
         }
+        else
+        {
+            EnemyManager.Instance.EnemyDied(this);
+            Destroy(gameObject);
+        }
     }
 
 }

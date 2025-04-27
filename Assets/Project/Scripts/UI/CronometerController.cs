@@ -26,8 +26,6 @@ public class CronometerController : MonoBehaviour
                 int l_ten = int.Parse(i.ToString().Substring(0, 1));
                 int l_unit = int.Parse(i.ToString().Substring(1, 1));
 
-                Debug.Log(l_ten + " " + l_unit);
-
                 m_tenSpriteRenderer.sprite = m_numbersSprites[l_ten];
                 m_unitSpriteRenderer.sprite = m_numbersSprites[l_unit];
             }
