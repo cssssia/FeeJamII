@@ -10,6 +10,8 @@ public class InputManager : Singleton<InputManager>
 
     [Header("References"), SerializeField] private InputActionReference onClickActionReference;
     private InputAction m_onClickAction;
+    [SerializeField] private InputActionReference onAimClickActionReference;
+    private InputAction m_onAimClickAction;
 
     #endregion
 
@@ -35,6 +37,8 @@ public class InputManager : Singleton<InputManager>
 
     public Action OnPerformHold;
     public Action OnReleaseHold;
+    public Action OnPerformAimClick;
+    public Action OnReleaseAimClick;
 
     public Vector2 MousePos
     {
@@ -46,11 +50,15 @@ public class InputManager : Singleton<InputManager>
     private void OnEnable()
     {
         m_onClickAction = onClickActionReference.ToInputAction();
-
+        m_onAimClickAction = onAimClickActionReference.ToInputAction();
+        
         m_onClickAction.Enable();
-
+        m_onAimClickAction.Enable();
+        
         m_onClickAction.performed += HoldClickPerformed;
         m_onClickAction.canceled += HoldClickCanceled;
+        m_onAimClickAction.performed += OnAimClick;
+        m_onAimClickAction.canceled += ReleaseAimClick;
 
         StartCoroutine(IEUpdate());
     }
@@ -111,6 +119,16 @@ public class InputManager : Singleton<InputManager>
             t += Time.deltaTime;
             yield return null;
         }
+    }
+
+    private void OnAimClick(InputAction.CallbackContext context)
+    {
+        OnPerformAimClick?.Invoke();
+    }
+
+    private void ReleaseAimClick(InputAction.CallbackContext context)
+    {
+        OnReleaseAimClick?.Invoke();
     }
 
     [Header("Debug"), SerializeField] private bool m_debug;

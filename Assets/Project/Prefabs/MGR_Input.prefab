@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_persistent: 0
   onClickActionReference: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  onAimClickActionReference: {fileID: -2895295899713043653, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_doubleClickBufferTime: 0.5
   <ClickPressedThisFrame>k__BackingField: 0
   <ClickReleasedThisFrame>k__BackingField: 0
