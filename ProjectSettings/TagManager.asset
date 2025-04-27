@@ -13,6 +13,7 @@ TagManager:
   - Shoot
   - DoubleShoot
   - Laser
+  - Background
   layers:
   - Default
   - TransparentFX
