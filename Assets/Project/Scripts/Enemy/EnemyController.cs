@@ -38,6 +38,11 @@ public class EnemyController : MonoBehaviour
         return this;
     }
 
+    public void Died()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D p_collider)
     {
         if (p_collider.tag.Contains(gameObject.tag))
@@ -47,7 +52,7 @@ public class EnemyController : MonoBehaviour
         else if (!p_collider.CompareTag("Background"))
         {
             EnemyManager.Instance.EnemyDied(this);
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
 

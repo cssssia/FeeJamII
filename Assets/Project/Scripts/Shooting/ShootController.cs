@@ -16,7 +16,7 @@ public class ShootController : MonoBehaviour
         if (l_penality < 3)
         {
             EnemyManager.Instance.EnemyDied(p_gameObject.GetComponent<EnemyController>());
-            Destroy(p_gameObject);
+            // Destroy(p_gameObject);
         }
 
         if (shouldDestroyOnShoot) Destroy(gameObject);
