@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
     [SerializeField] private float m_velocity;
 
     public int LaneNumber;
     public SpriteRenderer enemySprite;
     public Animator animator;
+    public EnemyType type;
 
     private void FixedUpdate()
     {
@@ -26,18 +26,19 @@ public class EnemyController : MonoBehaviour
         transform.Translate(m_velocity * Time.deltaTime * Vector2.left);
     }
 
-    public EnemyController Setup(int p_laneNumber, Sprite p_sprite, RuntimeAnimatorController p_animatorController, string p_enemy)
+    public EnemyController Setup(int p_laneNumber, Sprite p_sprite, RuntimeAnimatorController p_animatorController,
+        string p_enemy, EnemyType p_type)
     {
-
         enemySprite.sprite = p_sprite;
         animator.runtimeAnimatorController = p_animatorController;
         LaneNumber = p_laneNumber;
         tag = p_enemy;
         name = p_enemy;
+        type = p_type;
+        m_velocity = EnemyManager.Instance.CurrentEnemySpeed;
 
         return this;
     }
-
     public void Died()
     {
         Destroy(gameObject);
@@ -55,5 +56,12 @@ public class EnemyController : MonoBehaviour
             // Destroy(gameObject);
         }
     }
+}
 
+public enum EnemyType
+{
+    NONE,
+    ORANGE,
+    BLUE,
+    GREEN,
 }

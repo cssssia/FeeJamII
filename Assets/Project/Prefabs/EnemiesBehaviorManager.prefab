@@ -252,9 +252,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17217e61033404079ba71c03c5c0281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_persistent: 0
   spawnEnemies: 1
   destroyEnemiesWhenDamage: 1
   waitTimeBeforeStartSpawn: 3
+  m_enemiesInGame: []
+  m_progressionConfig: {fileID: 11400000, guid: 2b99bf31ea49ef348bbafd9864c2e1f3, type: 2}
+  m_currentWaveConfig: {fileID: 0}
+  currentWave: 0
 --- !u!1 &8938128646362676576
 GameObject:
   m_ObjectHideFlags: 0

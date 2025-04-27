@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8789cab8540fb49867e69e626af3d6, type: 3}
+  m_Name: CFG_Progression
+  m_EditorClassIdentifier: 
+  waves:
+  - wave: {fileID: 11400000, guid: dafcc095c6dcfaf498b78d56a40a8afb, type: 2}
+    levelRange: {x: 0, y: 5}
+  - wave: {fileID: 11400000, guid: 77e74f0c624a5404e8798fa22404e9c0, type: 2}
+    levelRange: {x: 5, y: 50}

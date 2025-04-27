@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public enum EnemyLane
@@ -20,10 +21,52 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public Action<int> OnEnemyReachLaneEnd;
     public Action<bool> OnCanSpawnEnemies;
+    [SerializeField] private DifficultyProgressionConfig m_progressionConfig;
+    [SerializeField] private WaveConfig m_currentWaveConfig;
+    [SerializeField, ReadOnly] private int currentWave;
+
+    protected override void OnAwake()
+    {
+        base.OnAwake();
+        m_currentWaveConfig = m_progressionConfig.GetCurrentWaveByWaveNumber(0);
+    }
+
+    public int AmountOfEnemiesThisWave
+    {
+        get { return m_currentWaveConfig.AmountOfEnemies; }
+    }
+
+    public float CurrentEnemySpeed
+    {
+        get
+        {
+            return 1 + m_currentWaveConfig.enemySpeedCurve.Evaluate((float)enemiesSpawnedThisWave /
+                                                                    AmountOfEnemiesThisWave) * currentWave;
+        }
+    }
+
+    public float CurrentEnemySpawnDelay
+    {
+        get
+        {
+            return m_currentWaveConfig.enemySpawnDelayCurve.Evaluate(1 - (float)enemiesSpawnedThisWave /
+                AmountOfEnemiesThisWave);
+        }
+    }
+
+    private int enemiesSpawnedThisWave;
 
     public void EnemySpawned(EnemyController p_enemyController)
     {
+        enemiesSpawnedThisWave++;
+        if (enemiesSpawnedThisWave >= AmountOfEnemiesThisWave) NextWave();
         m_enemiesInGame.Add(p_enemyController);
+    }
+
+    private void NextWave()
+    {
+        currentWave++;
+        m_currentWaveConfig = m_progressionConfig.GetCurrentWaveByWaveNumber(currentWave);
     }
 
     public void EnemyDied(EnemyController p_enemyController)
@@ -42,10 +85,13 @@ public class EnemyManager : Singleton<EnemyManager>
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
                 GameObject l_gameObject = m_enemiesInGame[i].gameObject;
+                m_enemiesInGame[i].animator.Play("Die");
 
                 m_enemiesInGame.RemoveAt(i);
 
                 Destroy(l_gameObject);
+
+                // Destroy(l_gameObject);
             }
         }
 
@@ -59,12 +105,11 @@ public class EnemyManager : Singleton<EnemyManager>
             SpawnEnemies(false);
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
-                m_enemiesInGame[i].animator.Play("Die");
+                GameObject l_gameObject = m_enemiesInGame[i].gameObject;
 
                 m_enemiesInGame.RemoveAt(i);
 
-
-                // Destroy(l_gameObject);
+                Destroy(l_gameObject);
             }
         }
 

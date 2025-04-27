@@ -5,7 +5,6 @@ public class LaneController : MonoBehaviour
 {
     public bool spawnLaneEnemies = true;
 
-    [SerializeField] private Vector2 m_enemySpawnRangeTimer;
     [SerializeField] private int m_laneNumber;
 
     [SerializeField] private EnemyScriptableObject enemiesSO;
@@ -16,7 +15,7 @@ public class LaneController : MonoBehaviour
         spawnLaneEnemies = EnemyManager.Instance.spawnEnemies;
 
         if (spawnLaneEnemies)
-            StartCoroutine(SpawnEnemy(Random.Range(0f, m_enemySpawnRangeTimer.x)));
+            StartCoroutine(SpawnEnemy(EnemyManager.Instance.CurrentEnemySpawnDelay));
     }
 
     private void OnCanSpawnEnemies(bool p_spawnEnemies)
@@ -24,7 +23,7 @@ public class LaneController : MonoBehaviour
         spawnLaneEnemies = p_spawnEnemies;
 
         if (p_spawnEnemies)
-            StartCoroutine(SpawnEnemy(Random.Range(0f, m_enemySpawnRangeTimer.x)));
+            StartCoroutine(SpawnEnemy(EnemyManager.Instance.CurrentEnemySpawnDelay));
     }
 
     private IEnumerator SpawnEnemy(float p_timeToWaitForSpawn)
@@ -35,7 +34,7 @@ public class LaneController : MonoBehaviour
         {
             EnemyManager.Instance.EnemySpawned(InstantiateEnemy(transform.position));
 
-            StartCoroutine(SpawnEnemy(Random.Range(m_enemySpawnRangeTimer.x, m_enemySpawnRangeTimer.y)));
+            StartCoroutine(SpawnEnemy(EnemyManager.Instance.CurrentEnemySpawnDelay));
         }
     }
 
@@ -45,8 +44,8 @@ public class LaneController : MonoBehaviour
 
         return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity)
             .GetComponent<EnemyController>()
-            .Setup(m_laneNumber, enemiesSO.sprites[enemyType], 
+            .Setup(m_laneNumber, enemiesSO.sprites[enemyType],
                 enemiesSO.animators[enemyType],
-                "Enemy" + enemyType);
+                "Enemy" + enemyType, (EnemyType)enemyType + 1);
     }
 }

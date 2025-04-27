@@ -39,8 +39,11 @@ public class WeaponBehavior : MonoBehaviour
 
     private void OnDisable()
     {
-        InputManager.Instance.OnPerformHold -= OnPerformHold;
-        InputManager.Instance.OnReleaseHold -= OnReleaseHold;
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.OnPerformHold -= OnPerformHold;
+            InputManager.Instance.OnReleaseHold -= OnReleaseHold;
+        }
 
         StopAllCoroutines();
     }
@@ -61,7 +64,8 @@ public class WeaponBehavior : MonoBehaviour
     {
         m_laserBaseExplosion.Play("LaserBase");
         // m_laserBaseExplosion.Play("LaserBase");
-        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
+        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x,
+            Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
         m_laserTargetExplosion.gameObject.transform.position = newPos;
         yield return new WaitForSeconds(m_delayBetweenLaserExplosions);
         m_laserTargetExplosion.Play("LaserTarget");
@@ -115,7 +119,8 @@ public class WeaponBehavior : MonoBehaviour
         shot.transform.position = new Vector3(shot.transform.position.x, shot.transform.position.y, 0);
         shot.tag = "Shoot";
         m_laserBaseExplosion.Play("ShootBase");
-        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
+        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x,
+            Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
         m_laserTargetExplosion.gameObject.transform.position = newPos;
         m_laserTargetExplosion.Play("ShootTarget");
     }
@@ -127,7 +132,8 @@ public class WeaponBehavior : MonoBehaviour
         shot.transform.position = new Vector3(shot.transform.position.x, shot.transform.position.y, 0);
         shot.tag = "DoubleShoot";
         m_laserBaseExplosion.Play("DoubleShootBase");
-        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
+        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x,
+            Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
         m_laserTargetExplosion.gameObject.transform.position = newPos;
         m_laserTargetExplosion.Play("DoubleShootTarget");
         OnDoubleShoot?.Invoke();
