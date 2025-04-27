@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(m_velocity * Time.deltaTime * Vector2.left);
+        transform.Translate(m_velocity * Time.fixedDeltaTime * Vector2.left);
     }
 
     public EnemyController Setup(int p_laneNumber, Sprite p_sprite, RuntimeAnimatorController p_animatorController,

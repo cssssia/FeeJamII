@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum EnemyLane
 {
@@ -25,9 +26,27 @@ public class EnemyManager : Singleton<EnemyManager>
     [SerializeField] private WaveConfig m_currentWaveConfig;
     [SerializeField, ReadOnly] private int currentWave;
 
+    public float startingMinSpawnDelay;
+
+    [FormerlySerializedAs("startingMaxSpeed")]
+    public float startingSpeed;
+
+    [FormerlySerializedAs("startingSpawnDelay")]
+    public float startingMaxSpawnDelay;
+
+    [SerializeField, ReadOnly] private float m_currentMinEnemySpawnDelay;
+
+    [SerializeField, ReadOnly] private float m_currentMaxEnemySpawnDelay;
+
+    [FormerlySerializedAs("m_currentMaxEnemySpeed")] [SerializeField, ReadOnly]
+    private float m_currentEnemySpeed;
+
     protected override void OnAwake()
     {
         base.OnAwake();
+        m_currentMinEnemySpawnDelay = startingMinSpawnDelay;
+        m_currentMaxEnemySpawnDelay = startingMaxSpawnDelay;
+        m_currentEnemySpeed = startingSpeed;
         m_currentWaveConfig = m_progressionConfig.GetCurrentWaveByWaveNumber(0);
     }
 
@@ -38,20 +57,17 @@ public class EnemyManager : Singleton<EnemyManager>
 
     public float CurrentEnemySpeed
     {
-        get
-        {
-            return 1 + m_currentWaveConfig.enemySpeedCurve.Evaluate((float)enemiesSpawnedThisWave /
-                                                                    AmountOfEnemiesThisWave) * currentWave;
-        }
+        get { return m_currentEnemySpeed; }
     }
 
-    public float CurrentEnemySpawnDelay
+    public float CurrentMinEnemySpawnDelay
     {
-        get
-        {
-            return m_currentWaveConfig.enemySpawnDelayCurve.Evaluate(1 - (float)enemiesSpawnedThisWave /
-                AmountOfEnemiesThisWave);
-        }
+        get { return m_currentMinEnemySpawnDelay; }
+    }
+
+    public float CurrentMaxEnemySpawnDelay
+    {
+        get { return m_currentMaxEnemySpawnDelay; }
     }
 
     private int enemiesSpawnedThisWave;
@@ -59,6 +75,14 @@ public class EnemyManager : Singleton<EnemyManager>
     public void EnemySpawned(EnemyController p_enemyController)
     {
         enemiesSpawnedThisWave++;
+        // decrease spawn delay
+        m_currentMinEnemySpawnDelay = Mathf.Max(.05f,
+            m_currentMinEnemySpawnDelay - m_currentWaveConfig.SpawnDelay(enemiesSpawnedThisWave));
+        m_currentMaxEnemySpawnDelay = Mathf.Max(.1f,
+            m_currentMaxEnemySpawnDelay - m_currentWaveConfig.SpawnDelay(enemiesSpawnedThisWave));
+
+        // increase speed
+        m_currentEnemySpeed += m_currentWaveConfig.EnemySpeed(enemiesSpawnedThisWave);
         if (enemiesSpawnedThisWave >= AmountOfEnemiesThisWave) NextWave();
         m_enemiesInGame.Add(p_enemyController);
     }

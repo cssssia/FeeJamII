@@ -14,27 +14,26 @@ public class LaneController : MonoBehaviour
         EnemyManager.Instance.OnCanSpawnEnemies += OnCanSpawnEnemies;
         spawnLaneEnemies = EnemyManager.Instance.spawnEnemies;
 
-        if (spawnLaneEnemies)
-            StartCoroutine(SpawnEnemy(EnemyManager.Instance.CurrentEnemySpawnDelay));
+        if (spawnLaneEnemies) StartCoroutine(SpawnEnemy());
     }
 
     private void OnCanSpawnEnemies(bool p_spawnEnemies)
     {
         spawnLaneEnemies = p_spawnEnemies;
 
-        if (p_spawnEnemies)
-            StartCoroutine(SpawnEnemy(EnemyManager.Instance.CurrentEnemySpawnDelay));
+        if (p_spawnEnemies) StartCoroutine(SpawnEnemy());
     }
 
-    private IEnumerator SpawnEnemy(float p_timeToWaitForSpawn)
+    private IEnumerator SpawnEnemy()
     {
-        yield return new WaitForSeconds(p_timeToWaitForSpawn);
+        yield return new WaitForSeconds(Random.Range(EnemyManager.Instance.CurrentMinEnemySpawnDelay,
+            EnemyManager.Instance.CurrentMaxEnemySpawnDelay));
 
         if (spawnLaneEnemies)
         {
             EnemyManager.Instance.EnemySpawned(InstantiateEnemy(transform.position));
 
-            StartCoroutine(SpawnEnemy(EnemyManager.Instance.CurrentEnemySpawnDelay));
+            StartCoroutine(SpawnEnemy());
         }
     }
 

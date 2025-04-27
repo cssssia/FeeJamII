@@ -13,7 +13,7 @@ public class DifficultyProgressionConfig : ScriptableObject
         for (int i = 0; i < waves.Count; i++)
         {
             WaveReference l_waveRef = waves[i];
-            if (p_waveNumber > l_waveRef.levelRange.x && p_waveNumber < l_waveRef.levelRange.y)
+            if (p_waveNumber >= l_waveRef.levelRange.x && p_waveNumber < l_waveRef.levelRange.y)
                 return l_waveRef.wave;
         }
 

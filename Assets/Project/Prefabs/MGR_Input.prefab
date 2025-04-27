@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4a753b50b9f034a9fa52ec999c8aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_persistent: 0
   onClickActionReference: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_doubleClickBufferTime: 0.5
   <ClickPressedThisFrame>k__BackingField: 0
