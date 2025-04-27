@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private float m_velocity;
+    [SerializeField] public float velocity;
 
     public int LaneNumber;
     public SpriteRenderer enemySprite;
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(m_velocity * Time.fixedDeltaTime * Vector2.left);
+        transform.Translate(velocity * Time.fixedDeltaTime * Vector2.left);
     }
 
     public EnemyController Setup(int p_laneNumber, Sprite p_sprite, RuntimeAnimatorController p_animatorController,
@@ -35,7 +35,9 @@ public class EnemyController : MonoBehaviour
         tag = p_enemy;
         name = p_enemy;
         type = p_type;
-        m_velocity = EnemyManager.Instance.CurrentEnemySpeed;
+        velocity = EnemyManager.Instance.CurrentEnemySpeed;
+
+        if (p_type == EnemyType.GREEN && LaneNumber == 0) enemySprite.flipX = true;
 
         return this;
     }
@@ -61,7 +63,7 @@ public class EnemyController : MonoBehaviour
 public enum EnemyType
 {
     NONE,
-    ORANGE,
     BLUE,
     GREEN,
+    ORANGE,
 }

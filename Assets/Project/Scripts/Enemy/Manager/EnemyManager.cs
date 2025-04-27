@@ -96,6 +96,7 @@ public class EnemyManager : Singleton<EnemyManager>
     public void EnemyDied(EnemyController p_enemyController)
     {
         m_enemiesInGame.Remove(p_enemyController);
+        p_enemyController.velocity = 0f;
         p_enemyController.animator.Play("Die");
     }
 
@@ -109,6 +110,7 @@ public class EnemyManager : Singleton<EnemyManager>
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
                 GameObject l_gameObject = m_enemiesInGame[i].gameObject;
+                m_enemiesInGame[i].velocity = 0f;
                 m_enemiesInGame[i].animator.Play("Die");
 
                 m_enemiesInGame.RemoveAt(i);

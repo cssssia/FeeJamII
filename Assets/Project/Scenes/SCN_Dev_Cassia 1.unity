@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_persistent: 0
-  m_life: 10
-  m_numOfHearts: 10
+  m_life: 5
+  m_numOfHearts: 5
   m_penality: 0
   m_penalityText: {fileID: 649862899}
   m_heartContainers:
@@ -325,7 +325,7 @@ MonoBehaviour:
   - {fileID: 1462086534}
   - {fileID: 1573113212}
   - {fileID: 147896928}
-  m_gameOver: {fileID: 0}
+  m_gameOver: {fileID: 1594029184}
 --- !u!1 &147896926
 GameObject:
   m_ObjectHideFlags: 0

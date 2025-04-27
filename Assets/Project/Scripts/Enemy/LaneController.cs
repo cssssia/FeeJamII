@@ -57,7 +57,9 @@ public class LaneController : MonoBehaviour
 
     private EnemyController InstantiateEnemy(Vector2 p_startPosition)
     {
-        int enemyType = Random.Range(0, 3);
+        int enemyType = Random.Range(0, 4);
+
+        if (enemyType == 3) enemyType = m_laneNumber;
 
         return Instantiate(enemiesSO.prefab, p_startPosition, Quaternion.identity)
             .GetComponent<EnemyController>()
