@@ -17,8 +17,9 @@ public class ShootController : MonoBehaviour
         {
             EnemyManager.Instance.EnemyDied(p_gameObject.GetComponent<EnemyController>());
             Destroy(p_gameObject);
-            if (shouldDestroyOnShoot) Destroy(gameObject);
         }
+
+        if (shouldDestroyOnShoot) Destroy(gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D p_collision)
@@ -35,7 +36,11 @@ public class ShootController : MonoBehaviour
         {
             KillEnemy(p_collision.gameObject);
         }
-        else if (shouldDestroyOnShoot)
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (shouldDestroyOnShoot)
         {
             Destroy(gameObject);
         }

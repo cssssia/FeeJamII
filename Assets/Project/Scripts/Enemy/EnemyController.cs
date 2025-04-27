@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
         {
             EnemyManager.Instance.EnemyReachLaneEnd();
         }
-        else
+        else if (!p_collider.CompareTag("Background"))
         {
             EnemyManager.Instance.EnemyDied(this);
             Destroy(gameObject);

@@ -114,6 +114,10 @@ public class WeaponBehavior : MonoBehaviour
             Quaternion.identity);
         shot.transform.position = new Vector3(shot.transform.position.x, shot.transform.position.y, 0);
         shot.tag = "Shoot";
+        m_laserBaseExplosion.Play("ShootBase");
+        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
+        m_laserTargetExplosion.gameObject.transform.position = newPos;
+        m_laserTargetExplosion.Play("ShootTarget");
     }
 
     public void DoubleShoot()
@@ -122,6 +126,10 @@ public class WeaponBehavior : MonoBehaviour
             Quaternion.identity);
         shot.transform.position = new Vector3(shot.transform.position.x, shot.transform.position.y, 0);
         shot.tag = "DoubleShoot";
+        m_laserBaseExplosion.Play("DoubleShootBase");
+        Vector2 newPos = new Vector2(Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).x, Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePos).y);
+        m_laserTargetExplosion.gameObject.transform.position = newPos;
+        m_laserTargetExplosion.Play("DoubleShootTarget");
         OnDoubleShoot?.Invoke();
     }
 
