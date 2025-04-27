@@ -33,6 +33,7 @@ public class WeaponBehavior : MonoBehaviour
     {
         InputManager.Instance.OnPerformHold += OnPerformHold;
         InputManager.Instance.OnReleaseHold += OnReleaseHold;
+        SoundManager.Instance?.SetGameMusic(true);
         m_laserObject.SetActive(false);
         m_laserVFXObject.SetActive(false);
         StartCoroutine(IEUpdate());
@@ -45,6 +46,8 @@ public class WeaponBehavior : MonoBehaviour
             InputManager.Instance.OnPerformHold -= OnPerformHold;
             InputManager.Instance.OnReleaseHold -= OnReleaseHold;
         }
+
+        SoundManager.Instance?.SetGameMusic(false);
 
         StopAllCoroutines();
     }
@@ -90,10 +93,12 @@ public class WeaponBehavior : MonoBehaviour
 
             if (InputManager.Instance.RightClickPerformedThisFrame)
             {
+                SoundManager.Instance?.PlaySound(AudioID.SHOT_2);
                 DoubleShoot();
             }
             else if (InputManager.Instance.ShouldNormalShootThisFrame)
             {
+                SoundManager.Instance?.PlaySound(AudioID.SHOT_1);
                 NormalShoot();
             }
             else if (InputManager.Instance.ClickHeld)
@@ -151,6 +156,6 @@ public class WeaponBehavior : MonoBehaviour
         m_laserFeixeObject.transform.localScale = new Vector3(m_laserFeixeObject.transform.localScale.x, distance,
             m_laserFeixeObject.transform.localScale.z);
 
-        m_laserFeixeObject.transform.localPosition = new Vector3(0f,  -(distance / 2), 0f);
+        m_laserFeixeObject.transform.localPosition = new Vector3(0f, -(distance / 2), 0f);
     }
 }

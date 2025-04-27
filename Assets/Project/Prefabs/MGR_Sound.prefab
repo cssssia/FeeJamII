@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5415805000725155031}
   m_Layer: 0
-  m_Name: SFX
+  m_Name: SFX_Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,9 +30,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7860961483118063824}
+  - {fileID: 5152866651112717017}
+  - {fileID: 7923548570286723541}
   m_Father: {fileID: 3840612431399484181}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2106258813337810028
+--- !u!1 &376182485031347001
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,31 +42,62 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8110784819057183070}
+  - component: {fileID: 5152866651112717017}
+  - component: {fileID: 5532280531148289246}
   m_Layer: 0
-  m_Name: AMB
+  m_Name: SFX_Hover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8110784819057183070
+--- !u!4 &5152866651112717017
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106258813337810028}
+  m_GameObject: {fileID: 376182485031347001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5336554675430666773}
-  m_Father: {fileID: 3840612431399484181}
+  m_Children: []
+  m_Father: {fileID: 5415805000725155031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4540090095806732859
+--- !u!114 &5532280531148289246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376182485031347001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 103740888
+      Data2: 1178122262
+      Data3: -34349644
+      Data4: -124140558
+    Path: event:/Main Menu/Hover
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &2481518414050764860
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,29 +105,61 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5336554675430666773}
+  - component: {fileID: 7923548570286723541}
+  - component: {fileID: 491697565400650618}
   m_Layer: 0
-  m_Name: AMB_
+  m_Name: SFX_Click
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5336554675430666773
+--- !u!4 &7923548570286723541
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540090095806732859}
+  m_GameObject: {fileID: 2481518414050764860}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8110784819057183070}
+  m_Father: {fileID: 5415805000725155031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491697565400650618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481518414050764860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1527729448
+      Data2: 1208165159
+      Data3: -715658819
+      Data4: 1800048928
+    Path: event:/Main Menu/UI Click 2
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5380367970972827311
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587714167004877502}
   m_Layer: 0
-  m_Name: MSC
+  m_Name: SFX_Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,8 +201,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3624995026212654736}
+  - component: {fileID: 9169869587102117322}
   m_Layer: 0
-  m_Name: MSC_
+  m_Name: MSC_Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,6 +224,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1587714167004877502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9169869587102117322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7807015323900133424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 512502162
+      Data2: 1241929897
+      Data3: 214118041
+      Data4: 470414424
+    Path: event:/Soundtracks/In-Game Soundtracks/N8's favorite
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9043960368517009292
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3840612431399484181}
+  - component: {fileID: 4854215106767389270}
   m_Layer: 0
   m_Name: MGR_Sound
   m_TagString: Untagged
@@ -189,9 +287,68 @@ Transform:
   m_Children:
   - {fileID: 5415805000725155031}
   - {fileID: 1587714167004877502}
-  - {fileID: 8110784819057183070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4854215106767389270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043960368517009292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169f2ca418d2f914e8395baca113b00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_persistent: 1
+  m_sounds:
+  - reference:
+      Guid:
+        Data1: -1458951476
+        Data2: 1221540985
+        Data3: -491750266
+        Data4: 206652583
+      Path: event:/Enemy SFX/Dies/EnemyDyingSFX
+    id: 1
+  - reference:
+      Guid:
+        Data1: -1527729448
+        Data2: 1208165159
+        Data3: -715658819
+        Data4: 1800048928
+      Path: event:/Main Menu/UI Click 2
+    id: 3
+  - reference:
+      Guid:
+        Data1: 979727216
+        Data2: 1233299340
+        Data3: 92233351
+        Data4: -1923347077
+      Path: event:/Player SFX/Gun Shots/Two Clicks/RightFingerShot
+    id: 5
+  - reference:
+      Guid:
+        Data1: -113354507
+        Data2: 1209240016
+        Data3: -569991748
+        Data4: -56736657
+      Path: event:/Player SFX/Gun Shots/One Click/Single Shot
+    id: 4
+  - reference:
+      Guid:
+        Data1: 983890794
+        Data2: 1202375864
+        Data3: -1411264584
+        Data4: -1223404435
+      Path: event:/Player SFX/Takes Damage/Took Damage
+    id: 2
+  m_menuHover: {fileID: 5532280531148289246}
+  m_menuAmbience: {fileID: 2409203856796603024}
+  m_gameMusic: {fileID: 9169869587102117322}
+  m_debug: 1
+  m_debugAudioID: 1
+  Banks: []
 --- !u!1 &9137176990495639619
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +358,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7860961483118063824}
+  - component: {fileID: 2409203856796603024}
   m_Layer: 0
-  m_Name: SFX_
+  m_Name: AMB_Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,3 +381,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5415805000725155031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2409203856796603024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137176990495639619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 602740551
+      Data2: 1120883442
+      Data3: 1940252824
+      Data4: 1201855776
+    Path: event:/Main Menu/Main Menu Ambient
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -54,6 +53,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (!p_collider.CompareTag("Background"))
         {
+            SoundManager.Instance?.PlaySound(AudioID.ENEMY_DEATH);
             EnemyManager.Instance.EnemyDied(this);
             // Destroy(gameObject);
         }

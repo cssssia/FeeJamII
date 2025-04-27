@@ -103,7 +103,7 @@ public class EnemyManager : Singleton<EnemyManager>
     public void EnemyReachLaneEnd()
     {
         OnEnemyReachLaneEnd?.Invoke(1);
-
+        SoundManager.Instance?.PlaySound(AudioID.PLAYER_DAMAGED);
         if (destroyEnemiesWhenDamage)
         {
             SpawnEnemies(false);

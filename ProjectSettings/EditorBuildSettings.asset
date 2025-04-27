@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/SCN_Menu.unity
     guid: 7e6dcd8747d8a4d0dae155bd444f01b0
   - enabled: 1
-    path: Assets/Project/Scenes/SCN_Dev_Cassia.unity
-    guid: 102dc64ecd7dc46b78f34a3f6c5883b1
+    path: Assets/Project/Scenes/SCN_Cutscene.unity
+    guid: 9674b6e50396cf34183417ba6377ee6c
+  - enabled: 1
+    path: Assets/Project/Scenes/SCN_Dev_Cassia 1.unity
+    guid: 031668a555d0e4ff3a2e5d8aaf4ba3eb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 55c33910e36dd4ac7b522d462b63b8c1, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
