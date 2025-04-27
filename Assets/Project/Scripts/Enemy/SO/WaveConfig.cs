@@ -10,12 +10,14 @@ public class WaveConfig : ScriptableObject
 
     public float SpawnDelay(int p_amountSpawnedThisWave)
     {
-        return spawnDelayCurve.Evaluate((float)p_amountSpawnedThisWave / AmountOfEnemies) * spawnDelayDecrease;
+        return
+            spawnDelayDecrease; // spawnDelayCurve.Evaluate((float)p_amountSpawnedThisWave / AmountOfEnemies) * spawnDelayDecrease;
     }
 
     public float EnemySpeed(int p_amountSpawnedThisWave)
     {
-        return speedIncreaseCurve.Evaluate((float)p_amountSpawnedThisWave / AmountOfEnemies) * speedIncrease;
+        return
+            speedIncrease; // speedIncreaseCurve.Evaluate((float)p_amountSpawnedThisWave / AmountOfEnemies) * speedIncrease;
     }
 
     public int AmountOfEnemies

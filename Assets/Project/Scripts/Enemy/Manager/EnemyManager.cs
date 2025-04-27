@@ -131,6 +131,13 @@ public class EnemyManager : Singleton<EnemyManager>
             SpawnEnemies(false);
             for (int i = m_enemiesInGame.Count - 1; i >= 0; i--)
             {
+                if (m_enemiesInGame[i] == null)
+                {
+                    m_enemiesInGame.Remove(m_enemiesInGame[i]);
+                    SpawnEnemies(true);
+                    return;
+                }
+
                 GameObject l_gameObject = m_enemiesInGame[i].gameObject;
 
                 m_enemiesInGame.RemoveAt(i);

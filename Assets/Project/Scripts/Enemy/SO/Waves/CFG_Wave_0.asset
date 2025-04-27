@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb1fa073581430489b71c104fa06ed5, type: 3}
   m_Name: CFG_Wave_0
   m_EditorClassIdentifier: 
-  speedIncrease: 0.25
+  speedIncrease: 0.04
   speedIncreaseCurve:
     serializedVersion: 2
     m_Curve:
@@ -37,7 +37,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  spawnDelayDecrease: 2
+  spawnDelayDecrease: 0.2
   spawnDelayCurve:
     serializedVersion: 2
     m_Curve:
@@ -62,4 +62,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_amountOfEnemies: 30
+  m_amountOfEnemies: 500

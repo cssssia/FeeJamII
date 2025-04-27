@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
         tag = p_enemy;
         name = p_enemy;
         type = p_type;
-        velocity = EnemyManager.Instance.CurrentEnemySpeed;
+        velocity = Mathf.Min(2, EnemyManager.Instance.CurrentEnemySpeed);
 
         if (p_type == EnemyType.GREEN && LaneNumber == 0) enemySprite.flipX = true;
 

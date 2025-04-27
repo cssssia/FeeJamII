@@ -16,8 +16,8 @@ public class LaneController : MonoBehaviour
 
         if (spawnLaneEnemies)
         {
-            float l_time = Random.Range(EnemyManager.Instance.CurrentMinEnemySpawnDelay,
-            EnemyManager.Instance.CurrentMaxEnemySpawnDelay);
+            float l_time =  Random.Range(Mathf.Max(.60f,EnemyManager.Instance.CurrentMinEnemySpawnDelay),
+                Mathf.Max(.75f, EnemyManager.Instance.CurrentMaxEnemySpawnDelay));
 
             CronometerController.Instance.StartCronometer((int)Mathf.Ceil(l_time));
 
@@ -29,12 +29,12 @@ public class LaneController : MonoBehaviour
     {
         spawnLaneEnemies = p_spawnEnemies;
 
-        if(!p_spawnEnemies) StopAllCoroutines();
+        if (!p_spawnEnemies) StopAllCoroutines();
 
         if (p_spawnEnemies)
         {
-            float l_time = Random.Range(EnemyManager.Instance.CurrentMinEnemySpawnDelay,
-            EnemyManager.Instance.CurrentMaxEnemySpawnDelay);
+            float l_time = Random.Range(Mathf.Max(.60f,EnemyManager.Instance.CurrentMinEnemySpawnDelay),
+                Mathf.Max(.75f, EnemyManager.Instance.CurrentMaxEnemySpawnDelay));
 
             CronometerController.Instance.StartCronometer((int)Mathf.Ceil(l_time));
 
@@ -44,8 +44,10 @@ public class LaneController : MonoBehaviour
 
     private IEnumerator SpawnEnemy(float p_time)
     {
-        yield return new WaitForSeconds(p_time != 0 ? p_time : Random.Range(EnemyManager.Instance.CurrentMinEnemySpawnDelay,
-            EnemyManager.Instance.CurrentMaxEnemySpawnDelay));
+        yield return new WaitForSeconds(p_time != 0
+            ? p_time
+            : Random.Range(Mathf.Max(.60f,EnemyManager.Instance.CurrentMinEnemySpawnDelay),
+                Mathf.Max(.75f, EnemyManager.Instance.CurrentMaxEnemySpawnDelay)));
 
         if (spawnLaneEnemies)
         {

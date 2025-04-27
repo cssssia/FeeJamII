@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - wave: {fileID: 11400000, guid: dafcc095c6dcfaf498b78d56a40a8afb, type: 2}
-    levelRange: {x: 0, y: 5}
-  - wave: {fileID: 11400000, guid: 1a9bc2379d95c93478f25d62835092d5, type: 2}
-    levelRange: {x: 5, y: 50}
+    levelRange: {x: 0, y: 50}
