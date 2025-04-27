@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponBehavior : MonoBehaviour
@@ -149,5 +150,7 @@ public class WeaponBehavior : MonoBehaviour
         float distance = Vector2.Distance(transform.position, m_laserObject.transform.position);
         m_laserFeixeObject.transform.localScale = new Vector3(m_laserFeixeObject.transform.localScale.x, distance,
             m_laserFeixeObject.transform.localScale.z);
+
+        m_laserFeixeObject.transform.localPosition = new Vector3(0f,  -(distance / 2), 0f);
     }
 }
