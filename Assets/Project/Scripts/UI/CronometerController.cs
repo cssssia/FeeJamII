@@ -5,16 +5,29 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CronometerController : MonoBehaviour
+public class CronometerController : Singleton<CronometerController>
 {
     [SerializeField] private List<Sprite> m_numbersSprites;
     [SerializeField] private Image m_tenSpriteRenderer;
     [SerializeField] private Image m_unitSpriteRenderer;
     [SerializeField] private Animator animator;
 
+    public int laneTime = 0;
+    private int aux = 0;
+
     public void StartCronometer(int p_seconds)
     {
-        StartCoroutine(RunCronometer(p_seconds));
+        if (laneTime == 0 && aux == 0) laneTime = p_seconds;
+        else if (laneTime > p_seconds) laneTime = p_seconds;
+
+        aux++;
+
+        if (aux >= 3)
+        {
+            StartCoroutine(RunCronometer(laneTime));
+            aux = 0;
+            laneTime = 0;
+        }
     }
 
     public IEnumerator RunCronometer(int p_seconds)

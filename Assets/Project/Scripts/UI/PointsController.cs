@@ -11,9 +11,10 @@ public class PointsController : Singleton<PointsController>
     [SerializeField] private int m_numOfHearts;
     [SerializeField] private int m_penality;
 
-    [SerializeField] private TextMeshProUGUI m_lifeText;
     [SerializeField] private TextMeshProUGUI m_penalityText;
     [SerializeField] private List<Image> m_heartContainers;
+
+    [SerializeField] private GameObject m_gameOver;
 
     void Start()
     {
@@ -50,6 +51,8 @@ public class PointsController : Singleton<PointsController>
     private void OnEnemyReachLaneEnd(int p_point)
     {
         m_life -= p_point;
+
+        if (m_life == 0) EndGame();
     }
 
     public int Penality()
@@ -72,7 +75,20 @@ public class PointsController : Singleton<PointsController>
             StartCoroutine(PenalityWarn());
         }
 
+        if (m_life == 0) EndGame();
+
         return l_penality;
+    }
+
+    public void EndGame()
+    {
+
+        EnemyManager.Instance.SpawnEnemies(false);
+
+        Time.timeScale = 0f;
+
+        m_gameOver.SetActive(true);
+
     }
 
     public IEnumerator PenalityWarn()

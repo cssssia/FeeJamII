@@ -119,7 +119,7 @@ public class EnemyManager : Singleton<EnemyManager>
             }
         }
 
-        StartCoroutine(StartSpawn());
+        SpawnEnemies(true);
     }
 
     public void PenalityOccured()
@@ -136,13 +136,6 @@ public class EnemyManager : Singleton<EnemyManager>
                 Destroy(l_gameObject);
             }
         }
-
-        StartCoroutine(StartSpawn());
-    }
-
-    private IEnumerator StartSpawn()
-    {
-        yield return new WaitForSeconds(waitTimeBeforeStartSpawn);
 
         SpawnEnemies(true);
     }
