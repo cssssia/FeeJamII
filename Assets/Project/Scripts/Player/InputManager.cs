@@ -94,6 +94,7 @@ public class InputManager : Singleton<InputManager>
 
             if (ClickPressedThisFrame && t < m_doubleClickBufferTime && clickedOnce)
             {
+                ClickPressedThisFrame = false;
                 DoubleClickPressedThisFrame = true;
                 clickedOnce = false;
             }
